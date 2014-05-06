@@ -1,0 +1,62 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="description" content="Tests for numbers cache">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Numbers cache tests</title>
+    </head>
+    <body>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/benchmark/1.0.0/benchmark.js"></script>
+        <script src="../numbers-cache.js"></script>
+
+        <script>
+
+        var suite = new Benchmark.Suite;
+
+        var cache = new NumbersCache();
+        //cache.clear('euler');
+
+        var eulerCache = cache.get('euler') || [];
+        var euler = [];
+
+        // add tests
+        suite.add('With Cache', function() {
+
+          for (var x = 0; x < 200; x++) {
+
+            if(!eulerCache[x]){
+
+              eulerCache[x] = Math.pow(x,2)-(x)+41;
+              cache.set('euler', x, eulerCache[x]);
+
+            }
+
+          }
+
+        })
+
+        .add('Without cache', function() {
+
+          for (var x = 0; x < 200; x++) {
+
+            euler[x] = Math.pow(x,2)-(x)+41;
+
+          }
+
+        })
+        // add listeners
+        .on('cycle', function(event) {
+          console.log(String(event.target));
+        })
+        .on('complete', function() {
+          console.log('Fastest is ' + this.filter('fastest').pluck('name'));
+          // console.log('With cache: ', eulerCache);
+          // console.log('Without cache: ', euler);
+        })
+        // run async
+        .run({ 'async': true });
+
+        </script>
+    </body>
+</html>
