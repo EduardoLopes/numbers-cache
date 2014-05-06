@@ -4,7 +4,7 @@
  * @author    EduardoLopesDS@gmail.com
  * @github    https://github.com/EduardoLopes/numbers-cache
  * @licence   MIT License
- * @version   0.0.1
+ * @version   0.0.2
  */
 (function(global, undefined) {
   'use strict';
@@ -32,6 +32,15 @@
 
     return JSON.parse(localStorage.getItem(formula));
 
+  };
+
+  NumbersCache.prototype.getResult = function(formula, number) {
+
+    if(!localStorage.getItem(formula)){
+      return false;
+    }
+
+    return JSON.parse(localStorage.getItem(formula))[number];
   };
 
   NumbersCache.prototype.clear = function(formula) {
