@@ -26,7 +26,7 @@
   }
 
   /**
-  * Set the result of the formula in the cache
+  * Set the result of the formula in cache
   * @memberof NumbersCache
   * @param {String} formula The name of the formula
   * @param {Number} number The number used to calc the formula
@@ -44,7 +44,7 @@
   };
 
   /**
-  * Get all results already in the cache
+  * Return an array with all results already in cache
   * @memberof NumbersCache
   * @param {String} formula The name of the formula
   * @returns {Array} Return the cache for the formula
@@ -56,7 +56,7 @@
   };
 
   /**
-  * Get the result for a especific number
+  * Return a single result
   * @memberof NumbersCache
   * @param {String} formula The name of the formula
   * @param {Number} number The number used to calc the formula
@@ -72,7 +72,7 @@
   };
 
   /**
-  * Delete the cache for a especific formula
+  * Delete the formula cache
   * @memberof NumbersCache
   * @param {String} formula The name of the formula
   */
