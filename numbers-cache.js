@@ -60,7 +60,7 @@
   * @memberof NumbersCache
   * @param {String} formula The name of the formula
   * @param {Number} number The number used to calc the formula
-  * @returns {Array|Boolean} Return the result if exists, if not return false
+  * @returns {Array|Boolean} Return the result if exists, else return false
   */
   NumbersCache.prototype.getResult = function(formula, number) {
 

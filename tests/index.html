@@ -23,7 +23,7 @@
         // add tests
         suite.add('With Cache', function() {
 
-          for (var x = 0; x < 200; x++) {
+          for (var x = 0; x < 40; x++) {
 
             if(!eulerCache[x]){
 
@@ -38,7 +38,7 @@
 
         .add('Without cache', function() {
 
-          for (var x = 0; x < 200; x++) {
+          for (var x = 0; x < 40; x++) {
 
             euler[x] = Math.pow(x,2)-(x)+41;
 
@@ -56,6 +56,25 @@
         })
         // run async
         .run({ 'async': true });
+
+        var cache = new NumbersCache(),
+        // get the last cache if exists
+        euler = cache.get('euler') || [],
+        x = Number();
+
+    for (x = 0; x < 40; x++) {
+
+      //if the result is not in the cache, calc and put in the cache
+      if(!euler[x]){
+
+        //Euler's prime-generating polynomial - x² - x + 41
+        euler[x] = Math.pow(x,2)-(x)+41;
+        cache.set('euler', x, euler[x]);
+
+      }
+
+    }
+
 
         </script>
     </body>
