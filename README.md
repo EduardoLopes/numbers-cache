@@ -55,7 +55,7 @@ With Cache x 3,243,060 ops/sec ±4.30% (87 runs sampled)<br/>
 Without cache x 2,422,756 ops/sec ±9.08% (73 runs sampled)<br/>
 Fastest is With Cache
 
-WORNING
+WARNING
 -------
 
 BE CAREFUL WITH MASSIVE LOOPS
